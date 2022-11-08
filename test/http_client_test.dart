@@ -121,7 +121,7 @@ void main() {
       client.get('exception').then(
         (_) {},
         onError: expectAsync1((error) {
-          expect(error.runtimeType, HttpErrorDataException);
+          expect(error.runtimeType, HttpUnexpectedErrorData);
         }),
       );
     });

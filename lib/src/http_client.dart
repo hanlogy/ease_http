@@ -4,6 +4,7 @@ import 'package:http/retry.dart';
 
 import './exceptions.dart';
 import './types.dart';
+import 'errors.dart';
 import 'helpers/parse_colon_uri.dart';
 import 'helpers/parse_request_headers.dart';
 import 'helpers/parse_request_url.dart';
@@ -233,15 +234,15 @@ class HttpClient {
                 }
               }
               if (body is! bool) {
-                throw HttpResponseBodyTypeException(status, T, body);
+                throw HttpUnexpectedResponseBodyType(T, body);
               }
               break;
           }
         } catch (e) {
-          if (e is HttpResponseBodyTypeException) {
+          if (e is HttpUnexpectedResponseBodyType) {
             rethrow;
           } else {
-            throw HttpResponseBodyTypeException(status, T, body);
+            throw HttpUnexpectedResponseBodyType(T, body);
           }
         }
       }
