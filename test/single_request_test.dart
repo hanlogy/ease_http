@@ -133,7 +133,7 @@ void main() {
       expect(() async {
         final response = await request.get<Map<String, String>>('int_map');
         print(response);
-      }, throwsA(isA<HttpResponseBodyTypeException>()));
+      }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
     });
   });
 }
