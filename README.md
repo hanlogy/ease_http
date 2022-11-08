@@ -1,6 +1,6 @@
 ## About
 
-Base on Dart [http](https://pub.dev/packages/http) package, makes http package
+Based on Dart [http](https://pub.dev/packages/http) package, makes http package
 more powerful and easier to use.
 
 ## Features
