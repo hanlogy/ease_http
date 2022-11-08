@@ -129,13 +129,34 @@ void main() {
   });
 
   group('http response exception', () {
-    test('exception', () async {
+    test('wrong non-null type', () async {
       expect(() async {
-        final response = await request.get<Map<String, String>>('int_map');
-        print(response);
+        await request.get<Map<String, String>>('int_map');
+      }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
+    });
+
+    test('expect Map, but returns null', () async {
+      expect(() async {
+        await request.get<Map<String, String>>('null');
+      }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
+    });
+
+    test('expect int, but returns null', () async {
+      expect(() async {
+        await request.get<int>('null');
+      }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
+    });
+
+    test('expect double, but returns null', () async {
+      expect(() async {
+        await request.get<double>('null');
+      }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
+    });
+
+    test('expect bool, but returns null', () async {
+      expect(() async {
+        await request.get<bool>('null');
       }, throwsA(isA<HttpUnexpectedResponseBodyType>()));
     });
   });
 }
-
-// TODO: Test null response, and the string `null` response 

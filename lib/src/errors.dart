@@ -4,7 +4,8 @@ import 'dart:convert';
 class HttpUnexpectedResponseBodyType extends Error {
   HttpUnexpectedResponseBodyType(Type T, Object? body)
       : message = 'The response data does not match the expected type: $T, '
-            'body:\n ${body is Map ? jsonEncode(body) : body.toString()}';
+            '\nbody: '
+            '${body is Map ? jsonEncode(body) : body.toString()}\n=====';
 
   final String message;
 
