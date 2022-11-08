@@ -177,11 +177,13 @@ class HttpClient {
     }
 
     if (status == 200 || status == 201) {
+      final expectedType = T.toString();
+
       // NOTE:
       // `null` `body` only happens when `contentType` is `application/json`.
       if (body != null) {
         try {
-          switch (T.toString()) {
+          switch (expectedType) {
             case 'Map<String, String>':
             case 'Map<String, String>?':
               body = Map<String, String>.from(body as Map);
@@ -245,6 +247,8 @@ class HttpClient {
             throw HttpUnexpectedResponseBodyType(T, body);
           }
         }
+      } else if (!expectedType.endsWith('?')) {
+        throw HttpUnexpectedResponseBodyType(T, body);
       }
 
       return body as T;
