@@ -247,7 +247,7 @@ class HttpClient {
             throw HttpUnexpectedResponseBodyType(T, body);
           }
         }
-      } else if (!expectedType.endsWith('?')) {
+      } else if (expectedType != 'dynamic' && !expectedType.endsWith('?')) {
         throw HttpUnexpectedResponseBodyType(T, body);
       }
 
