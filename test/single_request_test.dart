@@ -126,6 +126,12 @@ void main() {
         {'value': true, 'name': null},
       );
     });
+
+    test('no type specified', () async {
+      expect(await request.get('null'), null);
+      expect(await request.get('string'), 'ok');
+      expect(await request.get('string_map'), {'value': '1'});
+    });
   });
 
   group('http response exception', () {

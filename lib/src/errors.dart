@@ -3,7 +3,7 @@ import 'dart:convert';
 /// Error thrown when the success response body is not the expected type.
 class HttpUnexpectedResponseBodyType extends Error {
   HttpUnexpectedResponseBodyType(Type T, Object? body)
-      : message = 'The response data does not match the expected type: $T, '
+      : message = 'The response body does not match the expected type: $T, '
             '\nbody: '
             '${body is Map ? jsonEncode(body) : body.toString()}\n=====';
 

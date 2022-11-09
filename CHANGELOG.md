@@ -1,3 +1,8 @@
+## 0.1.3
+
+- Fix the issue when the response type is dynamic and the response value is null
+  [PR#4](https://github.com/hanlogy/ease_http/pull/4).
+
 ## 0.1.2
 
 - Catch more type errors
