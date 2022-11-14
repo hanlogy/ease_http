@@ -1,3 +1,9 @@
+## 0.1.4
+
+- Add comparison support to `HttpException`, `HttpUnexpectedResponseBodyType`
+  and `HttpUnexpectedErrorData`
+  [PR#5](https://github.com/hanlogy/ease_http/pull/5).
+
 ## 0.1.3
 
 - Fix the issue when the response type is dynamic and the response value is null
