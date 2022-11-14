@@ -66,8 +66,20 @@ class HttpException implements Exception {
         'data': data.toString(),
       }.toString();
 
+  @override
+  bool operator ==(Object other) {
+    return other is HttpException &&
+        status == other.status &&
+        code == other.code &&
+        message == other.message &&
+        data == other.data;
+  }
+
   final int status;
   final String code;
   final String? message;
   final dynamic data;
+
+  @override
+  int get hashCode => Object.hash(status, code, message, data);
 }

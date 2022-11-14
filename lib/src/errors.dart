@@ -13,6 +13,14 @@ class HttpUnexpectedResponseBodyType extends Error {
   String toString() {
     return message;
   }
+
+  @override
+  bool operator ==(Object other) {
+    return other is HttpUnexpectedResponseBodyType && message == other.message;
+  }
+
+  @override
+  int get hashCode => message.hashCode;
 }
 
 /// Error thrown when the error response contains unexpected data.
@@ -25,4 +33,12 @@ class HttpUnexpectedErrorData extends Error {
   String toString() {
     return message;
   }
+
+  @override
+  bool operator ==(Object other) {
+    return other is HttpUnexpectedErrorData && message == other.message;
+  }
+
+  @override
+  int get hashCode => message.hashCode;
 }
