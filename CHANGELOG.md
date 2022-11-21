@@ -1,3 +1,7 @@
+## 0.1.5-dev.1
+
+- Add a `toMultipartFile` extension for `File`.
+
 ## 0.1.4
 
 - Add comparison support to `HttpException`, `HttpUnexpectedResponseBodyType`
