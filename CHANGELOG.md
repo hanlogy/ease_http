@@ -1,6 +1,7 @@
-## 0.1.5-dev.1
+## 0.1.5-dev
 
 - Add a `toMultipartFile` extension for `File`.
+- Catch `SocketException`.
 
 ## 0.1.4
 

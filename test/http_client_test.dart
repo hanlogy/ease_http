@@ -156,4 +156,14 @@ void main() {
       );
     });
   });
+
+  test('SocketException', () async {
+    await expectLater(
+      () => HttpClient().get('http://localhost:0'),
+      throwsA(predicate(
+        (e) =>
+            e is HttpException && e.status == 0 && e.code == 'socket_exception',
+      )),
+    );
+  });
 }

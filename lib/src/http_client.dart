@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:io' hide HttpException;
+
 import 'package:http/http.dart';
 import 'package:http/retry.dart';
 
@@ -58,11 +60,21 @@ class HttpClient {
       headersBuilder: _headersBuilder,
     );
 
-    final streamedResponse = !useForm
-        ? await _sendJson(method, uri, headers, fields)
-        : await _sendForm(uri, headers, fields, files);
+    try {
+      final streamedResponse = !useForm
+          ? await _sendJson(method, uri, headers, fields)
+          : await _sendForm(uri, headers, fields, files);
 
-    return _httpResponseHandler<T>(await Response.fromStream(streamedResponse));
+      return _httpResponseHandler<T>(
+        await Response.fromStream(streamedResponse),
+      );
+    } on SocketException catch (e) {
+      throw HttpException(
+        code: 'socket_exception',
+        status: 0,
+        message: '${e.message}: $url',
+      );
+    }
   }
 
   Future<T> get<T extends dynamic>(
