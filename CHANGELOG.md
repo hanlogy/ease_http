@@ -1,7 +1,11 @@
-## 0.1.5-dev
+## 0.1.5
 
 - Add a `toMultipartFile` extension for `File`.
+  [PR#6](https://github.com/hanlogy/ease_http/pull/6).
 - Catch `SocketException`.
+  [PR#7](https://github.com/hanlogy/ease_http/pull/7).
+- Use FutureOr type for HttpErrorHandler and HttpHeadersBuilder
+  [PR#8](https://github.com/hanlogy/ease_http/pull/8).
 
 ## 0.1.4
 
