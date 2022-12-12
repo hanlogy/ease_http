@@ -1,10 +1,12 @@
+import 'dart:async';
+
 import 'exceptions.dart';
 
-typedef HttpErrorHandler = Future<HttpException?> Function(
+typedef HttpErrorHandler = FutureOr<HttpException?> Function(
   HttpException error,
 );
 
-typedef HttpHeadersBuilder = Future<Map<String, String>?> Function(
+typedef HttpHeadersBuilder = FutureOr<Map<String, String>?> Function(
   HttpRequest request,
 );
 
