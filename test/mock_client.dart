@@ -6,7 +6,6 @@ enum ContentType { json, text }
 
 final mockClient = MockClient((Request request) async {
   dynamic body;
-  Map<String, String>? headers;
   var contentType = ContentType.json;
   var status = 200;
 
@@ -113,7 +112,6 @@ final mockClient = MockClient((Request request) async {
         ContentType.json: 'application/json',
         ContentType.text: 'text/plain',
       }[contentType]!,
-      if (headers != null) ...headers,
     },
   );
 });
