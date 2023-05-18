@@ -1,6 +1,6 @@
 name: ease_http
 description: Based on Dart http package, makes http package more powerful and easier to use.
-version: 0.1.5
+version: 0.1.6
 homepage: https://github.com/hanlogy/ease_http
 
 environment:
