@@ -1,3 +1,7 @@
+## 0.1.6
+
+- Update some dependencies
+
 ## 0.1.5
 
 - Add a `toMultipartFile` extension for `File`.
