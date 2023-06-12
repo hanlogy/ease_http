@@ -1,3 +1,7 @@
+## 0.1.7
+
+- Update `http` to `1.0.0`
+
 ## 0.1.6
 
 - Update some dependencies
